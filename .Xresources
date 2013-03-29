@@ -1,0 +1,70 @@
+! General
+urxvt*termName:screen-256color
+urxvt*loginShell:         true
+urxvt*scrollBar:         false
+urxvt*secondaryScroll:    true 
+urxvt*saveLines:         65535
+urxvt*cursorBlink:       false
+urxvt*urgentOnBell:       true
+!urxvt*override-redirect:false
+!urxvt*borderLess:       false
+urxvt*internalBorder:       0
+urxvt*externalBorder:       0
+URxvt.iso14755: false
+URxvt.iso14755_52: false
+
+! Extensions
+urxvt*perl-lib:        /usr/lib/urxvt/perl/
+urxvt*perl-ext-common: default,matcher,clipboard,searchable-scrollback
+urxvt*urlLauncher:     /usr/bin/firefox
+urxvt*matcher.button:  1
+!  - catch ugly URLs
+urxvt*cutchars:	"`()'*<>[]{|}\""
+!  - Clipboard key binding
+URxvt.keysym.C-C:	perl:clipboard:copy
+URxvt.keysym.C-V:	perl:clipboard:paste
+ 
+! Appearance
+!  - use a bitmap font
+!urxvt*font:			xft:TerminusMedium:pixelsize=10:anialias=true
+!urxvt*boldFont:		xft:TerminusBold:pixelsize=10:anialias=true
+!urxvf*italicFont:	xft:TerminusMediumItalic:pixelsize=10:autialias=true
+!urxvt*letterSpace:  -2
+!  - use xft for drawing fonts
+urxvt*font:       xft:DejaVuSansMono:pixelsize=11:antialias=true
+!urxvt*font: -*-anorexia-*-*-*-*-11-*-*-*-*-*-iso10646-1
+
+!  - cursor
+urxvt*cursorColor: #DCDCCC
+!  - pseudo transparency
+urxvt*shading:    20
+urxvt*transparent:true
+urxvt*depth: 32
+
+!black
+URxvt.color0:  #000000
+URxvt.color8:  #2B2B2B
+!red
+URxvt.color1:  #A5372E
+URxvt.color9:  #E06C5C 
+!green
+URxvt.color2:  #4A663C 
+URxvt.color10: #7B996C
+!yellow
+URxvt.color3:  #7C5618
+URxvt.color11: #B38849
+!blue
+URxvt.color4:  #566060
+URxvt.color12: #889393
+!magenta
+URxvt.color5:  #8E4948
+URxvt.color13: #C67C78
+!cyan
+URxvt.color6:  #6D5B42
+URxvt.color14: #A28D73
+!white
+URxvt.color7:  #8D8D8D
+URxvt.color15: #C6C6C6
+
+urxvt.background: #111111 
+urxvt.foreground: 15
