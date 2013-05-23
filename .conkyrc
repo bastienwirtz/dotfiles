@@ -1,0 +1,38 @@
+out_to_x no
+out_to_console yes
+update_interval 1 1 
+format_human_readable yes
+font -xos4-terminus-medium-*-*--11-*-*-*-*-*-*-*
+mpd_host /home/baboon/.mpd/socket
+
+TEXT
+[
+{"full_text":"vol","color":"\#28C3C5","separator":false,"separator_block_width":3},\
+{"full_text":"»","color":"\#FFFFFF","separator":false,"separator_block_width":10},\
+{"full_text":"${mixer}%","color":"\#28C3C5","separator":false,"separator_block_width":12},\
+\
+{"full_text":"track","color":"\#FCCF00","separator":false,"separator_block_width":3},\
+{"full_text":"»","color":"\#FFFFFF","separator":false,"separator_block_width":10},\
+{"full_text":"${mpd_title}","color":"\#FCCF00","separator":false,"separator_block_width":12},\
+\
+\
+{"full_text":"uptime","color":"\#15D555","separator":false,"separator_block_width":3},\
+{"full_text":"»","color":"\#FFFFFF","separator":false,"separator_block_width":10},\
+{"full_text":"${uptime_short}","color":"\#15D555","separator":false,"separator_block_width":12},\
+\
+{"full_text":"eth0","color":"\#148DBB","separator":false,"separator_block_width":3},\
+{"full_text":"»","color":"\#FFFFFF","separator":false,"separator_block_width":10},\
+{"full_text":"${addrs enp14s0}","color":"\#148DBB","separator":false,"separator_block_width":12},\
+\
+\
+{"full_text":"cpu","color":"\#EAD0C7","separator":false,"separator_block_width":3},\
+{"full_text":"»","color":"\#FFFFFF","separator":false,"separator_block_width":10},\
+{"full_text":"${cpu cpu0}%","color":"\#EAD0C7","separator":false,"separator_block_width":12},\
+\
+\
+\
+{"full_text":"time","color":"\#F61E74","separator":false,"separator_block_width":3},\
+{"full_text":"»","color":"\#FFFFFF","separator":false,"separator_block_width":10},\
+{"full_text":"${time %a %d.%m/%H:%M}","color":"\#F61E74"}\
+],
+
