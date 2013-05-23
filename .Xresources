@@ -31,8 +31,8 @@ URxvt.keysym.C-V:	perl:clipboard:paste
 !urxvf*italicFont:	xft:TerminusMediumItalic:pixelsize=10:autialias=true
 !urxvt*letterSpace:  -2
 !  - use xft for drawing fonts
-urxvt*font:       xft:DejaVuSansMono:pixelsize=11:antialias=true
-!urxvt*font: -*-anorexia-*-*-*-*-11-*-*-*-*-*-iso10646-1
+!urxvt*font:       xft:DejaVuSansMono:pixelsize=11:antialias=true
+urxvt*font: -xos4-terminus-medium-*-*--12-*-*-*-*-*-*-*
 
 !  - cursor
 urxvt*cursorColor: #DCDCCC
@@ -41,30 +41,59 @@ urxvt*shading:    20
 urxvt*transparent:true
 urxvt*depth: 32
 
-!black
+
+! Black (not tango) + DarkGrey
 URxvt.color0:  #000000
-URxvt.color8:  #2B2B2B
-!red
-URxvt.color1:  #A5372E
-URxvt.color9:  #E06C5C 
-!green
-URxvt.color2:  #4A663C 
-URxvt.color10: #7B996C
-!yellow
-URxvt.color3:  #7C5618
-URxvt.color11: #B38849
-!blue
-URxvt.color4:  #566060
-URxvt.color12: #889393
-!magenta
-URxvt.color5:  #8E4948
-URxvt.color13: #C67C78
-!cyan
-URxvt.color6:  #6D5B42
-URxvt.color14: #A28D73
-!white
-URxvt.color7:  #8D8D8D
-URxvt.color15: #C6C6C6
+URxvt.color8:  #555753
+! DarkRed + Red
+URxvt.color1:  #ff6565
+URxvt.color9:  #ff8d8d
+! DarkGreen + Green
+URxvt.color2:  #93d44f
+URxvt.color10: #c8e7a8
+! DarkYellow + Yellow
+URxvt.color3:  #eab93d
+URxvt.color11: #ffc123
+! DarkBlue + Blue
+URxvt.color4:  #204a87
+URxvt.color12: #3465a4
+! DarkMagenta + Magenta
+URxvt.color5:  #ce5c00
+URxvt.color13: #f57900
+!DarkCyan + Cyan (both not tango)
+URxvt.color6:  #89b6e2
+URxvt.color14: #46a4ff
+! LightGrey + White
+URxvt.color7:  #cccccc
+URxvt.color15: #ffffff
+
+
+
+
+!!black
+!URxvt.color0:  #000000
+!URxvt.color8:  #2B2B2B
+!!red
+!URxvt.color1:  #A5372E
+!URxvt.color9:  #E06C5C 
+!!green
+!URxvt.color2:  #4A663C 
+!URxvt.color10: #7B996C
+!!yellow
+!URxvt.color3:  #7C5618
+!URxvt.color11: #B38849
+!!blue
+!URxvt.color4:  #566060
+!URxvt.color12: #889393
+!!magenta
+!URxvt.color5:  #8E4948
+!URxvt.color13: #C67C78
+!!cyan
+!URxvt.color6:  #6D5B42
+!URxvt.color14: #A28D73
+!!white
+!URxvt.color7:  #8D8D8D
+!URxvt.color15: #C6C6C6
 
 urxvt.background: #111111 
 urxvt.foreground: 15
