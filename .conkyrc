@@ -1,38 +1,68 @@
 out_to_x no
 out_to_console yes
-update_interval 1 1 
-format_human_readable yes
-font -xos4-terminus-medium-*-*--11-*-*-*-*-*-*-*
-mpd_host /home/baboon/.mpd/socket
+short_units yes
+update_interval 1
 
 TEXT
-[
-{"full_text":"vol","color":"\#28C3C5","separator":false,"separator_block_width":3},\
-{"full_text":"»","color":"\#FFFFFF","separator":false,"separator_block_width":10},\
-{"full_text":"${mixer}%","color":"\#28C3C5","separator":false,"separator_block_width":12},\
-\
-{"full_text":"track","color":"\#FCCF00","separator":false,"separator_block_width":3},\
-{"full_text":"»","color":"\#FFFFFF","separator":false,"separator_block_width":10},\
-{"full_text":"${mpd_title}","color":"\#FCCF00","separator":false,"separator_block_width":12},\
-\
-\
-{"full_text":"uptime","color":"\#15D555","separator":false,"separator_block_width":3},\
-{"full_text":"»","color":"\#FFFFFF","separator":false,"separator_block_width":10},\
-{"full_text":"${uptime_short}","color":"\#15D555","separator":false,"separator_block_width":12},\
-\
-{"full_text":"eth0","color":"\#148DBB","separator":false,"separator_block_width":3},\
-{"full_text":"»","color":"\#FFFFFF","separator":false,"separator_block_width":10},\
-{"full_text":"${addrs enp14s0}","color":"\#148DBB","separator":false,"separator_block_width":12},\
-\
-\
-{"full_text":"cpu","color":"\#EAD0C7","separator":false,"separator_block_width":3},\
-{"full_text":"»","color":"\#FFFFFF","separator":false,"separator_block_width":10},\
-{"full_text":"${cpu cpu0}%","color":"\#EAD0C7","separator":false,"separator_block_width":12},\
-\
-\
-\
-{"full_text":"time","color":"\#F61E74","separator":false,"separator_block_width":3},\
-{"full_text":"»","color":"\#FFFFFF","separator":false,"separator_block_width":10},\
-{"full_text":"${time %a %d.%m/%H:%M}","color":"\#F61E74"}\
-],
 
+[\
+# CPU temperature:
+{"full_text":"CPU","color":"\#545454","separator":false,"separator_block_width":6},\
+{"full_text":"${if_match ${hwmon 2 temp 1}<45}${hwmon 2 temp 1}","color":"\#909737","separator":false,"separator_block_width":0},\
+{"full_text":"${else}"},\
+{"full_text":"${if_match ${hwmon 2 temp 1}<55}${hwmon 2 temp 1}","color":"\#b27d12","separator":false,"separator_block_width":0},\
+{"full_text":"${else}"},\
+{"full_text":"${if_match ${hwmon 2 temp 1}>=55}${hwmon 2 temp 1}","color":"\#802828","separator":false,"separator_block_width":0},\
+{"full_text":"${else}"},\
+{"full_text":"${endif}${endif}${endif}"},\
+{"full_text":"C°","color":"\#aaaaaa","separator":false,"separator_block_width":6},\
+# GPU temperature:
+{"full_text":"GPU","color":"\#545454","separator":false,"separator_block_width":6},\
+{"full_text":"${if_match ${hwmon 0 temp 1}<45}${hwmon 0 temp 1}","color":"\#909737","separator":false,"separator_block_width":0},\
+{"full_text":"${else}"},\
+{"full_text":"${if_match ${hwmon 0 temp 1}<80}${hwmon 0 temp 1}","color":"\#b27d12","separator":false,"separator_block_width":0},\
+{"full_text":"${else}"},\
+{"full_text":"${if_match ${hwmon 0 temp 1}>=80}${hwmon 0 temp 1}","color":"\#802828","separator":false,"separator_block_width":0},\
+{"full_text":"${else}"},\
+{"full_text":"${endif}${endif}${endif}"},\
+{"full_text":"C°","color":"\#aaaaaa","separator":false,"separator_block_width":6},\
+# Download:
+{"full_text":"DOWN","color":"\#545454","separator":false,"separator_block_width":6},\
+{"full_text":"${if_match ${downspeedf enp2s0}<1000}${downspeed enp2s0}","color":"\#909737","separator":false,"separator_block_width":6},\
+{"full_text":"${else}"},\
+{"full_text":"${if_match ${downspeedf enp2s0}<3000}${downspeed enp2s0}","color":"\#b27d12","separator":false,"separator_block_width":6},\
+{"full_text":"${else}"},\
+{"full_text":"${if_match ${downspeedf enp2s0}>=3000}${downspeed enp2s0}","color":"\#802828","separator":false,"separator_block_width":6},\
+{"full_text":"${endif}${endif}${endif}"},\
+# Upload:
+{"full_text":"UP","color":"\#545454","separator":false,"separator_block_width":6},\
+{"full_text":"${if_match ${upspeedf enp2s0}<300}${upspeed enp2s0}","color":"\#909737","separator":false,"separator_block_width":6},\
+{"full_text":"${else}"},\
+{"full_text":"${if_match ${upspeedf enp2s0}<800}${upspeed enp2s0}","color":"\#b27d12","separator":false,"separator_block_width":6},\
+{"full_text":"${else}"},\
+{"full_text":"${if_match ${upspeedf enp2s0}>=800}${upspeed enp2s0}","color":"\#802828","separator":false,"separator_block_width":6},\
+{"full_text":"${endif}${endif}${endif}"},\
+# Memory:
+{"full_text":"MEM","color":"\#545454","separator":false,"separator_block_width":6},\
+{"full_text":"${if_match ${memperc}<30}${memeasyfree}","color":"\#909737","separator":false,"separator_block_width":6},\
+{"full_text":"${else}"},\
+{"full_text":"${if_match ${memperc}<70}${memeasyfree}","color":"\#b27d12","separator":false,"separator_block_width":6},\
+{"full_text":"${else}"},\
+{"full_text":"${if_match ${memperc}>=70}${memeasyfree}","color":"\#802828","separator":false,"separator_block_width":6},\
+{"full_text":"${endif}${endif}${endif}"},\
+# CPU:
+{"full_text":"CPU","color":"\#545454","separator":false,"separator_block_width":6},\
+{"full_text":"${if_match ${cpu cpu0}<50}${cpu cpu0}","color":"\#909737","separator":false,"separator_block_width":0},\
+{"full_text":"${else}"},\
+{"full_text":"${if_match ${cpu cpu0}<60E}${cpu cpu0}","color":"\#b27d12","separator":false,"separator_block_width":0},\
+{"full_text":"${else}"},\
+{"full_text":"${if_match ${cpu cpu0}<=100}${cpu cpu0}","color":"\#802828","separator":false,"separator_block_width":0},\
+{"full_text":"${endif}${endif}${endif}"},\
+{"full_text":"%","color":"\#aaaaaa","separator":false,"separator_block_width":6},\
+# Date:
+{"full_text":"DATE","color":"\#545454","separator":false,"separator_block_width":6},\
+{"full_text":"${time %D}","color":"\#aaaaaa","separator":false,"separator_block_width":6},\
+# Time:
+{"full_text":"TIME","color":"\#545454","separator":false,"separator_block_width":6},\
+{"full_text":"${time %H:%M}","color":"\#aaaaaa","separator":false}\
+],
