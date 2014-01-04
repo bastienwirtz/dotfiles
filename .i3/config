@@ -167,6 +167,11 @@ new_window 1pixel
 for_window [instance="urxvt"] border normal
 for_window [instance="Download"] floating enable
 for_window [class="Tilda"] floating enable
+for_window [class="mplayer"] floating enable
+for_window [class="feh"] floating enable
+for_window [class="urxvt"] border normal
+for_window [class="emulator64-arm"] border normal
+for_window [class="emulator64-arm"] floating enable
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
@@ -192,7 +197,8 @@ bar {
 #      urgent_workspace   #000000 #000000 #E72B36
     }
 }
-#exec --no-startup-id /usr/bin/xscreensaver -no-splash
+
+exec --no-startup-id /usr/bin/xscreensaver -no-splash
 
 exec --no-startup-id dunst
 #exec --no-startup-id compton -b --config ~/.compton.conf
@@ -201,3 +207,4 @@ exec --no-startup-id volti
 exec --no-startup-id parcellite -d -n
 exec --no-startup-id g15aiostats
 exec --no-startup-id urxvtd -q -o -f
+exec --no-startup-id start_mpd
