@@ -207,13 +207,11 @@ bar {
     }
 }
 
-#exec --no-startup-id /usr/bin/xscreensaver -no-splash
 exec --no-startup-id nm-applet
 exec --no-startup-id mpd
-#exec --no-startup-id g15aiostats
 exec --no-startup-id dunst
 #exec --no-startup-id compton -b --config ~/.compton.conf
 exec --no-startup-id [ -f ~/.fehbg ] && ~/.fehbg
-exec --no-startup-id parcellite -d -n
+exec --no-startup-id g15stats
 exec --no-startup-id urxvtd -q -o -f
 exec --no-startup-id mpd-notification
