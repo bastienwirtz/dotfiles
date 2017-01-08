@@ -45,3 +45,8 @@ export PAGER=most
 export EDITOR=vim
 export PATH=$PATH:/home/baboon/tools:/usr/lib/node_modules
 
+
+PROMPT="[${user_host}] ${current_dir} ${return_code}
+%B$%b "
+RPS1="${git_branch} %T"
+
