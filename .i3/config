@@ -1,47 +1,76 @@
 # i3 config file (v4)
 #
-# Please see http://i3wm.org/docs/userguide.html for a complete reference!
+# Please see https://i3wm.org/docs/userguide.html for a complete reference!
+#
+# This config file uses keycodes (bindsym) and was written for the QWERTY
+# layout.
+#
+# To get a config file with the same key positions, but for your current
+# layout, use the i3-config-wizard
+#
 
+# Use Mod4 as modifier
 set $mod Mod4
-
-# font for window titles. ISO 10646 = Unicode
-#font xft:lime:pixelsize=11
-font pango:Source Code Pro 10
-
-# colors
-
-#class          	 border   backgr.  text
-client.focused           #121212  #101010  #9e8a8e
-client.focused_inactive  #101010  #191919  #999999
-client.unfocused         #101010  #191919  #999999
-client.urgent            #cd989a  #cd989a  #2e3436
-
-client.background     	#1d1d1d
 
 force_xinerama yes
 
-# Use Mouse+$mod to drag floating windows to their wanted position
+# Font for window titles. Will also be used by the bar unless a different font
+# is used in the bar {} block below.
+font pango:Hack 10
+
+# This font is widely installed, provides lots of unicode glyphs, right-to-left
+# text rendering and scalability on retina/hidpi displays (thanks to pango).
+#font pango:DejaVu Sans Mono 8
+
+# Before i3 v4.8, we used to recommend this one as the default:
+# font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
+# The font above is very space-efficient, that is, it looks good, sharp and
+# clear in small sizes. However, its unicode glyph coverage is limited, the old
+# X core fonts rendering does not support right-to-left and this being a bitmap
+# font, it doesn't scale on retina/hidpi displays.
+
+# use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec urxvtc
+bindsym $mod+Return exec termite
+bindsym $mod+Shift+Return exec termite --title "floating_term"
 
 # kill focused window
 bindsym $mod+Shift+A kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec dmenu_run -fn  "-*-profont-*-*-*-*-11-*-*-*-*-*-*-*" -nb "#161616" -nf "#909737" -sb "#909737" -sf "#161616"
+bindsym $mod+d exec rofi -show run 
+bindsym $mod+Tab exec rofi -show window
+bindsym $mod+Shift+s exec rofi -show ssh
+# There also is the (new) i3-dmenu-desktop which only displays applications
+# shipping a .desktop file. It is a wrapper around dmenu, so you need that
+# installed.
+# bindsym Mod1+d exec --no-startup-id i3-dmenu-desktop
+
+# Start a filemanager
+bindsym $mod+x exec termite -e ranger
+bindsym $mod+Shift+x exec nautilus
+
+# Brightness control
+bindsym XF86MonBrightnessDown exec "xbacklight -dec 10"
+bindsym XF86MonBrightnessUp exec "xbacklight -inc 20"
+
+# Volume PULSE
+bindsym XF86AudioMute exec --no-startup-id "amixer -D pulse set Master toggle; pkill -RTMIN+10 i3blocks"
+bindsym XF86AudioRaiseVolume exec --no-startup-id "amixer -D pulse set Master 5%+ unmute; pkill -RTMIN+10 i3blocks; ogg123 /usr/share/sounds/freedesktop/stereo/audio-volume-change.oga"
+bindsym XF86AudioLowerVolume exec --no-startup-id "amixer -D pulse set Master 5%- unmute; pkill -RTMIN+10 i3blocks; ogg123 /usr/share/sounds/freedesktop/stereo/audio-volume-change.oga"
 
 # change focus
-bindsym $mod+Left  focus left
-bindsym $mod+Down  focus down
-bindsym $mod+Up    focus up
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # move focused window
-bindsym $mod+Shift+Left  move left
-bindsym $mod+Shift+Down  move down
-bindsym $mod+Shift+Up    move up
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
@@ -51,12 +80,12 @@ bindsym $mod+h split h
 bindsym $mod+v split v
 
 # enter fullscreen mode for the focused container
-bindsym $mod+f fullscreen
+bindsym $mod+f fullscreen toggle
 
-# change container layout (stacked, tabbed, default)
+# change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
-bindsym $mod+t layout tabbed
-bindsym $mod+e layout default
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
@@ -65,53 +94,57 @@ bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
 
 # focus the parent container
-bindsym $mod+q focus parent
+bindsym $mod+a focus parent
 
 # focus the child container
-#bindcode $mod+d focus child
+#bindsym $mod+d focus child
 
-# Media keys
-bindsym XF86AudioPlay        exec ncmpcpp toggle
-bindsym XF86AudioStop        exec ncmpcpp stop
-bindsym XF86AudioPrev        exec ncmpcpp prev
-bindsym XF86AudioNext        exec ncmpcpp next
-bindsym XF86WebCam           exec cheese
+# move the currently focused window to the scratchpad
+bindsym $mod+Shift+minus move scratchpad
 
-set $WS01 "1:  Terms"
-set $WSweb "2:  Web"
-set $WSDev "3:  Dev"
-set $WSFiles "4:  Files"
-set $WSirc "5:  IRC"
-set $WS06 "6:  "
-set $WS07 "7:  "
-set $WS08 "8:  "
-set $WS09 "9:  "
-set $WS10 "10:  "
+# Show the next scratchpad window or hide the focused scratchpad window.
+# If there are multiple scratchpad windows, this command cycles through them.
+bindsym $mod+minus scratchpad show
 
-# switch to workspace
-bindsym $mod+ampersand  workspace $WS01
-bindsym $mod+eacute     workspace $WSweb
-bindsym $mod+quotedbl   workspace $WSDev
-bindsym $mod+apostrophe workspace $WSFiles
-bindsym $mod+parenleft  workspace $WSirc
-bindsym $mod+minus      workspace $WS06
-bindsym $mod+egrave     workspace $WS07
-bindsym $mod+underscore workspace $WS08
-bindsym $mod+ccedilla   workspace $WS09
-bindsym $mod+agrave     workspace $WS10
+# Define names for default workspaces for which we configure key bindings later on.
+# We use variables to avoid repeating the names in multiple places.
+
+set $ws1  "1: "
+set $ws2  "2: "
+set $ws3  "3: "
+set $ws4  "4: "
+set $ws5  "5:🎧 "
+set $ws6  "6: "
+set $ws7  "7: "
+set $ws8  "8: "
+set $ws9  "9: "
+set $ws10 "10: "
+
+# switch to workspace 
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws10
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace $WS01
-bindsym $mod+Shift+2 move container to workspace $WSweb
-bindsym $mod+Shift+3 move container to workspace $WSDev
-bindsym $mod+Shift+4 move container to workspace $WSFiles
-bindsym $mod+Shift+5 move container to workspace $WSirc
-bindsym $mod+Shift+6 move container to workspace $WS06
-bindsym $mod+Shift+7 move container to workspace $WS07
-bindsym $mod+Shift+8 move container to workspace $WS08
-bindsym $mod+Shift+9 move container to workspace $WS09
-bindsym $mod+Shift+0 move container to workspace $WS10
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9
+bindsym $mod+Shift+0 move container to workspace $ws10
 
+workspace_auto_back_and_forth yes
 bindsym $mod+z workspace back_and_forth
 bindsym $mod+Shift+z move container to workspace back_and_forth; workspace back_and_forth
 
@@ -119,30 +152,20 @@ bindsym $mod+m exec i3-input -F 'mark %s' -P 'Mark name: '
 bindsym $mod+Shift+m exec i3-input -F '[con_mark=%s] focus' -P 'Go to mark: '
 
 # reload the configuration file
-bindsym $mod+Shift+C reload
+bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+R restart
+bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+E exit
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
-# Start a filemanager
-bindsym $mod+x exec xterm -e ranger
-bindsym $mod+Shift+x exec nautilus --no-desktop
+# i3 window decorations colors.
+# class                  border   backgr.  text   
+client.focused           #121212  #101010  #9e8a8e
+client.focused_inactive  #101010  #191919  #999999
+client.unfocused         #101010  #191919  #999999
+client.urgent            #cd989a  #cd989a  #2e3436
 
-# Brightness control
-bindsym XF86MonBrightnessDown exec "xbacklight -dec 10"
-bindsym XF86MonBrightnessUp exec "xbacklight -inc 20"
-
-# Volume ALSA
-#bindsym XF86AudioMute exec --no-startup-id "amixer set Master toggle; pkill -RTMIN+10 i3blocks"
-#bindsym XF86AudioRaiseVolume exec --no-startup-id "amixer set Master 5%+ unmute; pkill -RTMIN+10 i3blocks; ogg123 /usr/share/sounds/freedesktop/stereo/audio-volume-change.oga"
-#bindsym XF86AudioLowerVolume exec --no-startup-id "amixer set Master 5%- unmute; pkill -RTMIN+10 i3blocks; ogg123 /usr/share/sounds/freedesktop/stereo/audio-volume-change.oga"
-
-# Volume PULSE
-bindsym XF86AudioMute exec --no-startup-id "amixer -D pulse set Master toggle; pkill -RTMIN+10 i3blocks"
-bindsym XF86AudioRaiseVolume exec --no-startup-id "amixer -D pulse set Master 5%+ unmute; pkill -RTMIN+10 i3blocks; ogg123 /usr/share/sounds/freedesktop/stereo/audio-volume-change.oga"
-bindsym XF86AudioLowerVolume exec --no-startup-id "amixer -D pulse set Master 5%- unmute; pkill -RTMIN+10 i3blocks; ogg123 /usr/share/sounds/freedesktop/stereo/audio-volume-change.oga"
-
+client.background     	#1d1d1d
 
 
 # resize window (you can also use the mouse for that)
@@ -153,40 +176,29 @@ mode "resize" {
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
-        bindsym j resize shrink width 10 px or 10 ppt
-        bindsym k resize grow height 10 px or 10 ppt
-        bindsym l resize shrink height 10 px or 10 ppt
-        bindsym m resize grow width 10 px or 10 ppt
+        bindsym Left        resize shrink width 10 px or 10 ppt
+        bindsym Down        resize grow height 10 px or 10 ppt
+        bindsym Up          resize shrink height 10 px or 10 ppt
+        bindsym Right       resize grow width 10 px or 10 ppt
 
-        # same bindings, but for the arrow keys
-        bindsym 113 resize shrink width 10 px or 10 ppt
-        bindsym 116 resize grow height 10 px or 10 ppt
-        bindsym 111 resize shrink height 10 px or 10 ppt
-        bindsym 114 resize grow width 10 px or 10 ppt
-
-        # back to normal: Enter or Escape
+        # back to normal: Enter or Escape or Mod1+r
         bindsym Return mode "default"
         bindsym Escape mode "default"
+        bindsym $mod+r mode "default"
 }
-
-workspace_auto_back_and_forth yes
 
 bindsym $mod+r mode "resize"
 
-bindsym $mod+Shift+v [class="urxvt" title="VIM"] focus
-bindsym $mod+l exec i3lock -t -i /home/baboon/wallpapers/wallhaven-178187.png
+bindsym $mod+l exec ~/dotfiles/lock.sh
 
+# Specific window configuration
 new_window 1pixel
-
-
-for_window [instance="urxvt"]        border     normal
-for_window [instance="Download"]     floating   enable
-for_window [class="Tilda"]           floating   enable
+for_window [class="Pavucontrol"]     floating   enable
 for_window [class="mplayer"]         floating   enable
 for_window [class="feh"]             floating   enable
-for_window [class="urxvt"]           border     normal
 for_window [class="emulator64-arm"]  border     normal
 for_window [class="emulator64-arm"]  floating   enable
+for_window [title="floating_term"] floating enable border pixel 3 resize set 570 280
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
@@ -195,12 +207,12 @@ bar {
   position top 
   font pango:Source Code Pro 10
   status_command "i3blocks"
-  
+  strip_workspace_numbers yes
+
   colors {
       background #101010
       statusline #999999
-      #focused_workspace  #101010 #191919 #598269
-      focused_workspace   #101010 #191919 #30A13D
+      focused_workspace   #101010 #252525 #30A13D
       active_workspace    #101010 #252525 #598269
       inactive_workspace  #101010 #191919 #30A13D
       urgent_workspace    #101010 #2e3436 #879A8F
@@ -208,10 +220,6 @@ bar {
 }
 
 exec --no-startup-id nm-applet
-exec --no-startup-id mpd
 exec --no-startup-id dunst
-#exec --no-startup-id compton -b --config ~/.compton.conf
+exec --no-startup-id compton -b 
 exec --no-startup-id [ -f ~/.fehbg ] && ~/.fehbg
-exec --no-startup-id g15stats
-exec --no-startup-id urxvtd -q -o -f
-exec --no-startup-id mpd-notification

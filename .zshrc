@@ -10,7 +10,7 @@ ZSH_THEME="bira"
 # CASE_SENSITIVE="true"
 
 # Comment this out to disable bi-weekly auto-update checks
-#DISABLE_AUTO_UPDATE="true"
+DISABLE_AUTO_UPDATE="true"
 
 # Uncomment to change how many often would you like to wait before auto-updates occur? (in days)
 # export UPDATE_ZSH_DAYS=13
@@ -40,13 +40,17 @@ alias hist="grep '$1' /home/baboon/.zsh_history"
 alias vi="vim"
 alias du="du -h"
 alias df="df -h"
+alias ssh='TERM=xterm ssh'
 
 export PAGER=most
 export EDITOR=vim
 export PATH=$PATH:/home/baboon/tools:/usr/lib/node_modules
 
 
+alias git-clean-merged="git branch --merged | egrep -v '(^\*|master)' | xargs git branch -d"
+
 PROMPT="[${user_host}] ${current_dir} ${return_code}
-%B$%b "
+%B❯%b "
 RPS1="${git_branch} %T"
 
+export ANSIBLE_NOCOWS=1

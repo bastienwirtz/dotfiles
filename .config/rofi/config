@@ -1,0 +1,4 @@
+rofi.theme: onedark
+rofi.terminal: termite
+rofi.font: Terminus 9
+rofi.ssh-command: {terminal} -e "{ssh-client} {host}"

@@ -1,10 +1,11 @@
-dotfiles
-========
+# dotfiles
 
-Requirements
-=====
+## Requirements
 
 * i3blocks-git
-* playerctl
-* ttf-font-awesome
-* ttf-font-icons
+* i3lock-color
+* ttf-hack
+* termite
+* rofi
+* oh-my-zsh
+
