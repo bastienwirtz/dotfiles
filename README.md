@@ -8,4 +8,5 @@
 * termite
 * rofi
 * oh-my-zsh
+* vim-colors-solarized
 
