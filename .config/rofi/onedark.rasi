@@ -46,7 +46,7 @@ inputbar {
 }
 
 prompt {
-  text-color: @blue;
+  text-color: @red;
 }
 
 textbox-prompt-colon {
@@ -68,7 +68,7 @@ listview {
 element {
   padding: 5px;
   text-color: @text-alt;
-  highlight: bold #95ee8f; /* green */
+  highlight: bold #E89A9A;
   border-radius: 3px;
 }
 
