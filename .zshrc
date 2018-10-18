@@ -1,10 +1,11 @@
 # Oh-my-zsh configuration.
 ZSH=/usr/share/oh-my-zsh/
+ZSH_CUSTOM=$HOME/.dotfiles/oh-my-zsh/
 
 # Zsh theme (~/.oh-my-zsh/themes/)
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="bira"
+ZSH_THEME="galli"
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
@@ -41,16 +42,13 @@ alias vi="vim"
 alias du="du -h"
 alias df="df -h"
 alias ssh='TERM=xterm ssh'
+alias git-clean-merged="git branch --merged | egrep -v '(^\*|master)' | xargs git branch -d"
 
 export PAGER=most
 export EDITOR=vim
+export ANSIBLE_NOCOWS=1
 export PATH=$PATH:/home/baboon/tools:/usr/lib/node_modules
 
 
-alias git-clean-merged="git branch --merged | egrep -v '(^\*|master)' | xargs git branch -d"
 
-PROMPT="[${user_host}] ${current_dir} ${return_code}
-%B❯%b "
-RPS1="${git_branch} %T"
 
-export ANSIBLE_NOCOWS=1
