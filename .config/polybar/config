@@ -55,7 +55,7 @@ font-3 = Wuncon Siji:pixelsize=10;1
 
 modules-left = i3 xwindow
 modules-center = date 
-modules-right = filesystem xbacklight pulseaudio xkeyboard memory cpu wlan eth battery temperature
+modules-right = filesystem xbacklight pulseaudio monitor xkeyboard memory cpu wlan eth battery temperature
 
 tray-position = right
 tray-padding = 2
@@ -89,6 +89,12 @@ label-indicator-padding = 2
 label-indicator-margin = 1
 label-indicator-background = ${colors.secondary}
 label-indicator-underline = ${colors.background}
+
+
+[module/monitor]
+type = custom/text
+content =  
+click-left = $HOME/.dotfiles/tools/external-monitor.sh
 
 ; Separator in between workspaces
 ; label-separator = |
