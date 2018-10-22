@@ -29,7 +29,7 @@ underline = #CB3838
 [bar/top]
 monitor = ${env:MONITOR:eDP1}
 width = 100%
-height =30
+height = 30
 radius = 0
 fixed-center = true
 
@@ -376,7 +376,7 @@ menu-2-1 = cancel
 menu-2-1-exec = menu-open-0
 
 [settings]
-screenchange-reload = true
+;screenchange-reload = true
 ;compositing-background = xor
 ;compositing-background = screen
 ;compositing-foreground = source
