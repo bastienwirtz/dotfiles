@@ -1,8 +1,9 @@
 #!/bin/bash
+# Automatically activate external monitors and configure i3 environnement
 
 # Use a udev rule to automatically trigger this script
 # /etc/udev/rules.d/98-monitor-hotplug.rules
-# KERNEL=="card0", SUBSYSTEMS=="drm", ACTION=="change", RUN+="/path/to/external-monitor.sh"
+# KERNEL=="card0", SUBSYSTEMS=="drm", ACTION=="change", RUN+="/path/to/workspace-init.sh"
 
 LAPTOP_SCREEN="eDP1"
 MONITORS=( $(xrandr | grep connected -w | cut -d ' ' -f 1 ) )
@@ -36,12 +37,13 @@ then
   MONITOR=$LAPTOP_SCREEN
 fi
 
-i3-msg "restart" 
-sleep 1
-
 i3-msg "workspace 1, move workspace to output $MONITOR"
 i3-msg "workspace 2, move workspace to output $MONITOR"
 i3-msg "workspace 3, move workspace to output $MONITOR"
+
+# Adjust wallpaper & reload polybar
+$HOME/.fehbg
+$HOME/.config/polybar/launch.sh
 
 exit 0
 

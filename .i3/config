@@ -203,9 +203,8 @@ for_window [class="emulator64-arm"]  floating   enable
 for_window [title="floating_term"] floating enable border pixel 3 resize set 570 280
 
 
-# Start background apps
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-exec_always --no-startup-id $HOME/.fehbg
+# Startup apps
+exec_always --no-startup-id $HOME/.dotfiles/tools/workspace-init.sh
 exec --no-startup-id nm-applet
 exec --no-startup-id dunst
 exec --no-startup-id compton -b 
