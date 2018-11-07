@@ -33,10 +33,15 @@ then
   # All input disconected
   xrandr --auto
   notify-send "External screen disconnected" 
+  MONITOR=$LAPTOP_SCREEN
 fi
 
-i3-msg "restart"
-i3-msg "move workspace to output primary"
+i3-msg "restart" 
+sleep 1
+
+i3-msg "workspace 1, move workspace to output $MONITOR"
+i3-msg "workspace 2, move workspace to output $MONITOR"
+i3-msg "workspace 3, move workspace to output $MONITOR"
 
 exit 0
 
