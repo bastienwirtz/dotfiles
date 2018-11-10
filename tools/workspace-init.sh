@@ -14,12 +14,12 @@ do
   case $MONITOR in
     # Predefined configurations
     "DP1")
-      # Work
-      xrandr --output "$MONITOR"  --auto --primary --right-of "$LAPTOP_SCREEN"
-      ;;
-    "HDMI1")
       # Home
       xrandr --output "$MONITOR"  --auto --primary --left-of "$LAPTOP_SCREEN"
+      ;;
+    "HDMI1")
+      # work
+      xrandr --output "$MONITOR"  --auto --primary --right-of "$LAPTOP_SCREEN"
       ;;
     *)
       # Default
