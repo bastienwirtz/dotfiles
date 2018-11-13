@@ -50,5 +50,6 @@ export ANSIBLE_NOCOWS=1
 export PATH=$PATH:/home/baboon/tools:/usr/lib/node_modules
 
 
+alias serve="python -m http.server 8000"
 
 

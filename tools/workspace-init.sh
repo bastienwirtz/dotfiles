@@ -23,7 +23,7 @@ do
       ;;
     *)
       # Default
-      xrandr --output "$MONITOR"  --auto --primary --right-of "$LAPTOP_SCREEN"
+      xrandr --output "$MONITOR"  --auto --primary --left-of "$LAPTOP_SCREEN"
       ;;
     esac
     notify-send "External screen connected" "$MONITOR activated."
@@ -37,9 +37,9 @@ then
   MONITOR=$LAPTOP_SCREEN
 fi
 
-i3-msg "workspace 1, move workspace to output $MONITOR"
-i3-msg "workspace 2, move workspace to output $MONITOR"
-i3-msg "workspace 3, move workspace to output $MONITOR"
+i3-msg "workspace number 1, move workspace to output $MONITOR"
+i3-msg "workspace number 2, move workspace to output $MONITOR"
+i3-msg "workspace number 3, move workspace to output $MONITOR"
 
 # Adjust wallpaper & reload polybar
 $HOME/.fehbg
