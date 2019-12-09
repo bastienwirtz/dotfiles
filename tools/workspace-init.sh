@@ -17,9 +17,9 @@ do
       # Home
       xrandr --output "$MONITOR"  --auto --primary --left-of "$LAPTOP_SCREEN"
       ;;
-    "HDMI1")
+    "DP2")
       # work
-      xrandr --output "$MONITOR"  --auto --primary --right-of "$LAPTOP_SCREEN"
+      xrandr --output "$MONITOR"  --auto --primary --left-of "$LAPTOP_SCREEN"
       ;;
     *)
       # Default
@@ -44,6 +44,7 @@ i3-msg "workspace number 3, move workspace to output $MONITOR"
 # Adjust wallpaper & reload polybar
 $HOME/.fehbg
 $HOME/.config/polybar/launch.sh
+setxkbmap -rules evdev -model evdev -layout us -variant altgr-intl
 
 exit 0
 

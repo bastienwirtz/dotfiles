@@ -98,11 +98,11 @@ bindsym $mod+a focus parent
 #bindsym $mod+d focus child
 
 # move the currently focused window to the scratchpad
-bindsym $mod+Shift+minus move scratchpad
+bindsym $mod+Shift+grave move scratchpad
 
 # Show the next scratchpad window or hide the focused scratchpad window.
 # If there are multiple scratchpad windows, this command cycles through them.
-bindsym $mod+minus scratchpad show
+bindsym $mod+grave scratchpad show
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
@@ -138,7 +138,6 @@ bindsym $mod+Shift+2 move container to workspace $ws2
 bindsym $mod+Shift+3 move container to workspace $ws3
 bindsym $mod+Shift+4 move container to workspace $ws4
 bindsym $mod+Shift+5 move container to workspace $ws5
-bindsym $mod+Shift+6 move container to workspace $ws6
 bindsym $mod+Shift+7 move container to workspace $ws7
 bindsym $mod+Shift+8 move container to workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9
@@ -159,13 +158,13 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # i3 window decorations colors.
-# class                  border   backgr.  text   
-client.focused           #121212  #101010  #9e8a8e
-client.focused_inactive  #101010  #191919  #999999
-client.unfocused         #101010  #191919  #999999
+# class                  border   backgr.  text    indicator  child_border
+client.focused           #121212  #101010  #9e8a8e #464646    #717146
+client.focused_inactive  #101010  #191919  #999999 
+client.unfocused         #101010  #191919  #999999 
 client.urgent            #cd989a  #cd989a  #2e3436
 
-client.background     	#1d1d1d
+client.background     	 #1d1d1d
 
 
 # resize window (you can also use the mouse for that)
@@ -194,17 +193,20 @@ bindsym $mod+l exec $HOME/.dotfiles/lock.sh
 # Specific window configuration
 default_border pixel 1
 default_floating_border pixel 1
+hide_edge_borders smart
 for_window [class="Pavucontrol"]     floating   enable
 for_window [class="mplayer"]         floating   enable
 for_window [class="feh"]             floating   enable
 for_window [class="Yad"]             floating   enable
 for_window [class="emulator64-arm"]  border     normal
 for_window [class="emulator64-arm"]  floating   enable
-for_window [title="floating_term"] floating enable border pixel 3 resize set 570 280
+for_window [title="floating_term"]   floating   enable resize set 570 280
 
 
 # Startup apps
 exec_always --no-startup-id $HOME/.dotfiles/tools/workspace-init.sh
 exec --no-startup-id nm-applet
 exec --no-startup-id dunst
-exec --no-startup-id compton -b 
+exec --no-startup-id redshift-gtk
+exec --no-startup-id polychromatic-tray-applet
+exec --no-startup-id sleep 1 && picom -b 

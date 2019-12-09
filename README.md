@@ -6,13 +6,13 @@ Configuration file for pretty much everthing. Desktop environment based on Archl
 
 Some configuration might need extra dependencies: 
 * arc-gtk-theme, arc-icon-theme
-* compton
+* picom
 * dunst
 * feh
 * i3-wm, i3lock-color
 * nautilus
 * nm-applet
-* oh-my-zsh
+* prezto
 * polybar
 * ranger
 * rofi
@@ -24,6 +24,16 @@ Some configuration might need extra dependencies:
 
 Optional but usefull stuff to install:
 android-tools, base-devel, caffeine, docker, gcolor2, gedit, gimp, git, htop, httpie, lm_sensors, meld, most, ntfs-3g, nvm, openssl, openvpn, pavucontrol, peek, s-tui, scrot, tig, tmux, vlc
+
+## Prezto zsh install
+
+```sh
+setopt EXTENDED_GLOB
+for rcfile in /usr/lib/prezto/runcoms/^README.md(.N); do\
+  ln -s "$rcfile" "$HOME/.${rcfile:t}"\
+done
+```
+
 
 ## I3 Cheat sheet
 

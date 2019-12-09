@@ -13,3 +13,4 @@ for m in $(polybar --list-monitors | cut -d":" -f1); do
 done
 
 echo "Polybar launched..."
+exit 0
