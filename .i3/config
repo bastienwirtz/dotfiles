@@ -194,13 +194,14 @@ bindsym $mod+l exec $HOME/.dotfiles/lock.sh
 default_border pixel 1
 default_floating_border pixel 1
 hide_edge_borders smart
-for_window [class="Pavucontrol"]     floating   enable
-for_window [class="mplayer"]         floating   enable
-for_window [class="feh"]             floating   enable
-for_window [class="Yad"]             floating   enable
-for_window [class="emulator64-arm"]  border     normal
-for_window [class="emulator64-arm"]  floating   enable
-for_window [title="floating_term"]   floating   enable resize set 570 280
+for_window [class="Pavucontrol"]      floating   enable
+for_window [class="mplayer"]          floating   enable
+for_window [class="feh"]              floating   enable
+for_window [class="Yad"]              floating   enable
+for_window [class="emulator64-arm"]   border     normal
+for_window [class="emulator64-arm"]   floating   enable
+for_window [class="Gnome-calculator"] floating   enable
+for_window [title="floating_term"]    floating   enable resize set 570 280
 
 
 # Startup apps
