@@ -27,4 +27,5 @@ export PATH=$PATH:/home/baboon/tools:/usr/lib/node_modules
 export PATH="$PATH:`yarn global bin`"
 export ANSIBLE_VAULT_PASSWORD_FILE=~/.vault
 export PYTHONPATH=/home/baboon/dev/genymotion-cloud/genymotion-cloud-be-messagebus/gmcmb/:$PYTHONPATH
-
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin

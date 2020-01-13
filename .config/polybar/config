@@ -91,11 +91,6 @@ label-indicator-background = ${colors.secondary}
 label-indicator-underline = ${colors.background}
 
 
-[module/monitor]
-type = custom/text
-content =  
-click-left = $HOME/.dotfiles/tools/workspace-init.sh
-
 ; Separator in between workspaces
 ; label-separator = |
 
