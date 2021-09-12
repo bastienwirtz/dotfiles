@@ -87,6 +87,7 @@ bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
+bindsym $mod+Ctrl+s sticky toggle
 
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
@@ -202,11 +203,14 @@ for_window [class="emulator64-arm"]   border     normal
 for_window [class="emulator64-arm"]   floating   enable
 for_window [class="Gnome-calculator"] floating   enable
 for_window [title="floating_term"]    floating   enable resize set 570 280
-
+for_window [class="(?i)firefox"] title_format "<tt></tt><span foreground='#94C20A'> 龜 </span><tt> </tt>%title"
+for_window [class="(?i)google-chrome"] title_format "<tt></tt><span foreground='#94C20A'>  </span><tt> </tt>%title"
+for_window [class="(?i)termite"] title_format "<tt></tt><span foreground='#94C20A'>  </span><tt> </tt>%title"
 
 # Startup apps
 exec_always --no-startup-id $HOME/.dotfiles/tools/workspace-init.sh
 exec --no-startup-id nm-applet
+exec --no-startup-id blueman-applet
 exec --no-startup-id dunst
 exec --no-startup-id redshift-gtk
 exec --no-startup-id polychromatic-tray-applet

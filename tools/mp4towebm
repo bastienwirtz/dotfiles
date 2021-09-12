@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# Constant quality 2-pass MP4 to WEBM convertion.
+# See https://trac.ffmpeg.org/wiki/Encode/VP9 for more info
+
+infile=$1
+outfile=$(echo "$infile" | cut -f 1 -d '.').webm
+
+ffmpeg -i "$infile" -c:v libvpx-vp9 -b:v 0 -crf 30 -pass 1 -an -f null /dev/null && \
+ffmpeg -i "$infile" -c:v libvpx-vp9 -b:v 0 -crf 30 -pass 2 -c:a libopus "$outfile"

@@ -247,9 +247,10 @@ type = internal/pulseaudio
 format-volume = <label-volume> <bar-volume>
 label-volume =  
 label-volume-foreground = ${root.foreground}
-
 label-muted =  muted
 label-muted-foreground = #666
+
+click-right = pavucontrol & 
 
 bar-volume-width = 10
 bar-volume-foreground-0 = #55aa55
