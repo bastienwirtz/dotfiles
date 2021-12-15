@@ -1,5 +1,5 @@
 " Syntax processing
-colorscheme solarized
+colorscheme onedark 
 syntax on
 
 " Indentation
@@ -10,6 +10,7 @@ set expandtab
 filetype indent on
 
 " UI: show line number, display last command, current line highlight, command auto complete
+set background=dark
 set number
 set showcmd
 set cursorline

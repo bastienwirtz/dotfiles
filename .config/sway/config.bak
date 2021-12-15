@@ -12,9 +12,19 @@
 # Set mod key (Mod1=<Alt>, Mod4=<Super>)
 set $mod Mod4
 
+set $term kitty
+output DP-1 bg $HOME/Pictures/space.jpg fill
+output HDMI-A-1 bg $HOME/Pictures/space-v.jpg fill
+output DP-1 resolution 2560x1440@119.998Hz position 0,0
+output HDMI-A-1 resolution 1920x1080 position 2560,0 transform 90
+
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 font pango:Hack 10
+
+gaps inner 8
+smart_gaps on
+
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -38,7 +48,7 @@ bindsym $mod+Shift+Return exec $term --title "floating_term"
 bindsym $mod+Shift+A kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec rofi -show run 
+bindsym $mod+d exec wofi --show run --allow-images --gtk-dark | xargs swaymsg exec --
 bindsym $mod+Tab exec rofi -show window
 bindsym $mod+Shift+s exec rofi -show ssh
 # There also is the (new) i3-dmenu-desktop which only displays applications
@@ -47,7 +57,7 @@ bindsym $mod+Shift+s exec rofi -show ssh
 # bindsym Mod1+d exec --no-startup-id i3-dmenu-desktop
 
 # Start a filemanager
-bindsym $mod+x exec termite -e ranger
+bindsym $mod+x exec $term -e ranger
 bindsym $mod+Shift+x exec nautilus
 
 # Brightness control
@@ -167,6 +177,10 @@ client.urgent            #cd989a  #cd989a  #2e3436
 
 client.background     	 #1d1d1d
 
+bar {
+
+    swaybar_command waybar
+}
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -208,10 +222,10 @@ for_window [class="(?i)google-chrome"] title_format "<tt></tt><span foreground='
 for_window [class="(?i)termite"] title_format "<tt></tt><span foreground='#94C20A'>  </span><tt> </tt>%title"
 
 # Startup apps
-exec_always --no-startup-id $HOME/.dotfiles/tools/workspace-init.sh
-exec --no-startup-id nm-applet
-exec --no-startup-id blueman-applet
-exec --no-startup-id dunst
-exec --no-startup-id redshift-gtk
+########################################################exec_always --no-startup-id $HOME/.dotfiles/tools/workspace-init-sway.sh
+exec nm-applet
+exec blueman-applet
+exec mako
+#exec --no-startup-id redshift-gtk
 exec --no-startup-id polychromatic-tray-applet
-exec --no-startup-id sleep 1 && picom -b 
+#exec --no-startup-id sleep 1 && picom -b 
