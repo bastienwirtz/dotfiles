@@ -198,5 +198,6 @@ bar {
 exec blueman-applet
 exec mako
 exec_always nm-applet --indicator
+exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
 
 include /etc/sway/config.d/*
