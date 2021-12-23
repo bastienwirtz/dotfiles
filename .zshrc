@@ -32,6 +32,7 @@ alias ssh='TERM=xterm ssh'
 alias git-clean-merged="git branch --merged | egrep -v '(^\*|master)' | xargs git branch -d"
 alias pytest="pytest --show-capture=no -s"
 alias nvminit="source /usr/share/nvm/init-nvm.sh"
+alias uuid='python -c "import uuid; print(uuid.uuid4())"'
 
 export PAGER=most
 export VISUAL=nvim
