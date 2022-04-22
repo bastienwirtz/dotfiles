@@ -33,13 +33,15 @@ alias git-clean-merged="git branch --merged | egrep -v '(^\*|master)' | xargs gi
 alias pytest="pytest --show-capture=no -s"
 alias nvminit="source /usr/share/nvm/init-nvm.sh"
 alias uuid='python -c "import uuid; print(uuid.uuid4())"'
+alias ls='exa --group-directories-first'
+alias ll='exa -l --group-directories-first'
 
 export PAGER=most
 export VISUAL=nvim
 export EDITOR="$VISUAL"
 export ANSIBLE_NOCOWS=1
 export PATH="$PATH:`yarn global bin`"
-export ANSIBLE_VAULT_PASSWORD_FILE=~/.vault
+export ANSIBLE_VAULT_PASSWORD_FILE=~/.ansible_vault
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 

@@ -2,16 +2,14 @@ markup=1
 actions=1
 
 # Format
-font=Fira Hack 11
+font=Lato 12
 border-color=#002028
-border-size=2
-border-radius=15
-padding=10
-border-radius=5
+border-size=0
+padding=15
+border-radius=8
 default-timeout=10000
-background-color=#002b36AA
+background-color=#434C5EAA
 text-color=#fdf6e3
-format=<b>%s</b> <span color="#93a1a1">(%a)</span>\n%b
 
 # icons
 icon-path=/usr/share/icons/Papirus-Adapta-Nokto-Maia:/usr/share/icons/Papirus-Maia:/usr/share/icons/Papirus
@@ -21,6 +19,7 @@ icon-path=/usr/share/icons/Papirus-Adapta-Nokto-Maia:/usr/share/icons/Papirus-Ma
 format=Hidden: %h [%t]
 
 [urgency=low]
+background-color=#3B4252AA
 text-color=#93a1a1
 
 [urgency=low actionable]
@@ -31,19 +30,8 @@ border-color=#268bd2
 
 [urgency=high]
 border-color=#9c2220
-background-color=#9c222099
+background-color=#BF616AAA
 
 [urgency=high actionable]
 border-color=#6c71c4
-
-[app-name=playerctl]
-max-icon-size=96
-
-[app-name=clementine]
-max-icon-size=96
-
-[app-name=i3-hint]
-max-icon-size=48
-format=%s\n%b
-width=150
 
