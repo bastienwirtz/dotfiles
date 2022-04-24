@@ -1,0 +1,13 @@
+[user]
+	email = bastien.wirtz@gmail.com
+	name = Bastien Wirtz
+
+[pager]
+  branch = false
+  tag = false
+[pull]
+	rebase = true
+[init]
+	defaultBranch = main
+[diff "ansible-vault"]
+	textconv = ansible-vault view

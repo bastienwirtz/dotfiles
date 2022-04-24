@@ -1,0 +1,12 @@
+output DP-1 resolution 2560x1440@119.998Hz position 0,0
+output HDMI-A-1 resolution 1920x1080 position 2560,0 transform 90
+
+exec "GTK_THEME="Arc-Dark" gtkgreet -l; swaymsg exit"
+
+bindsym Mod4+shift+e exec swaynag \
+	-t warning \
+	-m 'What do you want to do?' \
+	-b 'Poweroff' 'systemctl poweroff' \
+	-b 'Reboot' 'systemctl reboot'
+
+include /etc/sway/config.d/*

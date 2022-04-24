@@ -1,29 +1,37 @@
 # .dotfiles
 
-Configuration file for pretty much everthing. Desktop environment based on Archlinux, zsh, i3vm, polybar, rofi and termite.
+Configuration file for pretty much everthing.
+Support both Sway & i3wm window manager.
 
-![screenshot](screenshot.png)
-
-Some configuration might need extra dependencies: 
+Desktop environment apps: 
+* Sway, swaylock OR i3-wm, i3lock-color
+* zsh with prezto
+* alacritty
 * arc-gtk-theme, arc-icon-theme
-* picom
-* dunst
-* feh
-* i3-wm, i3lock-color
+* mako (sway) / dunst (i3)
+* feh (i3only)
 * nautilus
 * nm-applet
-* prezto
-* polybar
+* waybar (sway) / polybar (i3)
 * ranger
-* rofi
-* termite, termite-terminfo
-* vim-colors-solarized
+* kickoff (sway) / rofi (i3)
+* nvim
 * xorg-xfd, ttf-unifont, ttf-hack, ttf-font-awesome, awesome-terminal-fonts, siji-git 
 * xrandr
-* zsh
 
 Optional but usefull stuff to install:
-android-tools, base-devel, caffeine, docker, gcolor2, gedit, gimp, git, htop, httpie, lm_sensors, meld, most, ntfs-3g, nvm, openssl, openvpn, pavucontrol, peek, s-tui, scrot, tig, tmux, vlc
+base-devel, docker, gcolor2, gedit, gimp, git, htop, httpie, lm_sensors, meld, most, nvm, openssl, pavucontrol, peek, s-tui, scrot, tig, tmux, vlc
+
+
+https://github.com/joshdick/onedark.vim
+https://marketplace.visualstudio.com/items?itemName=zhuangtongfa.Material-theme
+
+## Installation
+
+```sh
+dotbot -c dotbot.conf.yaml
+```
+
 
 ## Prezto zsh install
 

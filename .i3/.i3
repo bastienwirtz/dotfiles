@@ -1,1 +1,0 @@
-/home/baboon/dotfiles/.i3

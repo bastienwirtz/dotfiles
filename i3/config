@@ -191,7 +191,7 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-bindsym $mod+l exec $HOME/.dotfiles/lock.sh
+bindsym $mod+l exec $HOME/.dotfiles/scripts/lock.sh
 
 # Specific window configuration
 default_border pixel 1
@@ -210,7 +210,7 @@ for_window [class="(?i)google-chrome"] title_format "<tt></tt><span foreground='
 for_window [class="(?i)termite"] title_format "<tt></tt><span foreground='#94C20A'>  </span><tt> </tt>%title"
 
 # Startup apps
-exec_always --no-startup-id $HOME/.dotfiles/tools/workspace-init.sh
+exec_always --no-startup-id $HOME/.dotfiles/scripts/workspace-init.sh
 exec --no-startup-id nm-applet
 exec --no-startup-id blueman-applet
 exec --no-startup-id dunst
