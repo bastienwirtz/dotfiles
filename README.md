@@ -9,7 +9,7 @@ Desktop environment apps:
 * alacritty
 * arc-gtk-theme, arc-icon-theme
 * mako (sway) / dunst (i3)
-* feh (i3only)
+* feh (i3)
 * nautilus
 * nm-applet
 * waybar (sway) / polybar (i3)
@@ -17,7 +17,8 @@ Desktop environment apps:
 * kickoff (sway) / rofi (i3)
 * nvim
 * xorg-xfd, ttf-unifont, ttf-hack, ttf-font-awesome, awesome-terminal-fonts, siji-git 
-* xrandr
+* xrandr (i3)
+
 
 Optional but usefull stuff to install:
 base-devel, docker, gcolor2, gedit, gimp, git, htop, httpie, lm_sensors, meld, most, nvm, openssl, pavucontrol, peek, s-tui, scrot, tig, tmux, vlc
@@ -29,7 +30,12 @@ https://marketplace.visualstudio.com/items?itemName=zhuangtongfa.Material-theme
 ## Installation
 
 ```sh
+# User config
 dotbot -c dotbot.conf.yaml
+
+# global config
+cp sway-run /usr/local/bin/sway-run
+cp etc/greetd/* /etc/greetd
 ```
 
 

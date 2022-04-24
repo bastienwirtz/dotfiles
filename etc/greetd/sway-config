@@ -1,5 +1,23 @@
-output DP-1 resolution 2560x1440@119.998Hz position 0,0
-output HDMI-A-1 resolution 1920x1080 position 2560,0 transform 90
+set $laptop eDP-1
+set $home_horizontal "Goldstar Company Ltd LG ULTRAGEAR 012NTXR77770"
+set $home_vertical "Integrated Tech Express Inc DP2VGA V235 0x00000000"
+
+output $home_horizontal {
+  resolution 2560x1440@119.998Hz position 0,0
+}
+
+output $home_vertical {
+  resolution 1920x1080 position 2560,00 transform 90
+}
+
+input * {
+    xkb_layout "fr"
+}
+
+input 9494:89:Cooler_Master_Technology_Inc._MasterKeys_Pro_S_white {
+    xkb_layout "us"
+    xkb_variant "altgr-intl"
+}
 
 exec "GTK_THEME="Arc-Dark" gtkgreet -l; swaymsg exit"
 
