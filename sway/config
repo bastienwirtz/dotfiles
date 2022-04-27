@@ -22,6 +22,7 @@ set $laptop eDP-1
 set $home_horizontal "Goldstar Company Ltd LG ULTRAGEAR 012NTXR77770"
 set $home_vertical "Integrated Tech Express Inc DP2VGA V235 0x00000000"
 
+
 output * {
   bg $HOME/Pictures/wallpaper.jpg fill
 }
@@ -206,6 +207,7 @@ hide_edge_borders smart
 
 for_window [app_id="pavucontrol"] floating enable, resize set width 800px height 500px 
 for_window [title="floating_term"] floating enable, resize set width 670px height 400px 
+for_window [title="Firefox — Sharing Indicator"] floating enable 
 
 #
 # Status Bar:
