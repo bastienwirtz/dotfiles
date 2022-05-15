@@ -34,6 +34,7 @@ https://marketplace.visualstudio.com/items?itemName=zhuangtongfa.Material-theme
 dotbot -c dotbot.conf.yaml
 
 # global config
+cp wayland_enablement.sh /usr/local/bin/wayland_enablement.sh
 cp sway-run /usr/local/bin/sway-run
 cp etc/greetd/* /etc/greetd
 ```
