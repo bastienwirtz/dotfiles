@@ -21,7 +21,8 @@ set $menu kickoff
 set $laptop eDP-1
 set $home_horizontal "Goldstar Company Ltd LG ULTRAGEAR 012NTXR77770"
 set $home_vertical "Integrated Tech Express Inc DP2VGA V235 0x00000000"
-
+bindswitch lid:on output $laptop disable
+bindswitch lid:off output $laptop enable
 
 output * {
   bg $HOME/Pictures/wallpaper.jpg fill
@@ -75,7 +76,7 @@ input 9494:89:Cooler_Master_Technology_Inc._MasterKeys_Pro_S_white {
     floating_modifier $mod normal
 
     # Lock screen
-    bindsym $mod+l swaylock
+    bindsym $mod+l exec swaylock -f -c 000000
 
     # Reload the configuration file
     bindsym $mod+Shift+r reload
