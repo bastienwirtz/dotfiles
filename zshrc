@@ -18,6 +18,7 @@ alias nvminit="source /usr/share/nvm/init-nvm.sh"
 alias uuid='python -c "import uuid; print(uuid.uuid4())"'
 alias ls='exa --group-directories-first'
 alias ll='exa -l --group-directories-first'
+alias la='ll -a'
 
 export PAGER=most
 export VISUAL=nvim
@@ -26,7 +27,7 @@ export ANSIBLE_NOCOWS=1
 export PATH="$PATH:`yarn global bin`"
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
-export PATH=$PATH:~/.dotfiles/scripts:/usr/lib/node_modules
+export PATH=$PATH:~/.dotfiles/scripts:/usr/lib/node_modules:~/.local/bin
 
 if [[ -f ~/.zshrc-ext ]]; then
     source ~/.zshrc-ext

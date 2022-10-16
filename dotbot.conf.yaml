@@ -19,8 +19,9 @@
     ~/.config/sway: sway
     ~/.config/waybar: waybar
     ~/.config/electron-flags.conf: electron-flags.conf
-    ~/.config/electron13-flags.conf: electron-flags.conf
     ~/.config/electron17-flags.conf: electron-flags.conf
+    ~/.config/electron18-flags.conf: electron-flags.conf
+    ~/.config/electron19-flags.conf: electron-flags.conf
     ~/.i3: i3
     ~/.gitconfig: gitconfig
     ~/.vimrc: vimrc
