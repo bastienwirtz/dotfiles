@@ -19,8 +19,8 @@ set $menu kickoff
 
 
 set $laptop eDP-1
-set $home_horizontal "Goldstar Company Ltd LG ULTRAGEAR 012NTXR77770"
-set $home_vertical "Integrated Tech Express Inc DP2VGA V235 0x00000000"
+set $home_horizontal "LG Electronics LG ULTRAGEAR 012NTXR77770"
+set $home_vertical "Samsung Electric Company LF24T35 HK2R908131"
 bindswitch lid:on output $laptop disable
 bindswitch lid:off output $laptop enable
 
@@ -29,20 +29,19 @@ output * {
 }
 
 output $home_horizontal {
-  resolution 2560x1440@119.998Hz position 0,0
+  resolution 2560x1440@119.998Hz position 00,00
 }
 
 output $home_vertical {
   resolution 1920x1080@60.000Hz position 2560,00 transform 90
 }
 
+
 ### Idle configuration
 
 exec swayidle -w \
-	timeout 900 'swaylock -f -c 000000' \
-	timeout 1000 'swaymsg "output * dpms off"' \
-	resume 'swaymsg "output * dpms on"' \
-        before-sleep 'swaylock -f -c 000000'
+	timeout 300 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
+  timeout 1800 'systemctl suspend' resume 'swaymsg "output * dpms on"' \
 
 ### Input configuration
 
@@ -83,6 +82,10 @@ input 9494:89:Cooler_Master_Technology_Inc._MasterKeys_Pro_S_white {
 
     # Exit sway (logs you out of your Wayland session)
     bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
+
+    # Emoji picker
+    bindsym $mod+twosuperior exec emote
+    bindsym $mod+grave exec emote
 #
 # Moving around:
 #
@@ -171,11 +174,11 @@ input 9494:89:Cooler_Master_Technology_Inc._MasterKeys_Pro_S_white {
     # You can send windows there and get them back later.
 
     # Move the currently focused window to the scratchpad
-    bindsym $mod+Shift+minus move scratchpad
+    #bindsym $mod+Shift+minus move scratchpad
 
     # Show the next scratchpad window or hide the focused scratchpad window.
     # If there are multiple scratchpad windows, this command cycles through them.
-    bindsym $mod+minus scratchpad show
+    #bindsym $mod+minus scratchpad show
 #
 # Resizing containers:
 #
@@ -224,5 +227,8 @@ exec blueman-applet
 exec mako
 exec_always nm-applet --indicator
 exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
+exec eval $(gnome-keyring-daemon --start)
+exec export SSH_AUTH_SOCK
+exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
 include /etc/sway/config.d/*

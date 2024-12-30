@@ -81,9 +81,6 @@ element urgent, element selected urgent {
   text-color: @red;
 }
 
-element active, element selected active {
-  text-color: @purple;
-}
 
 message {
   padding: 5px;
